@@ -1,0 +1,45 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#ifdef __OBJC__
+
+#import "UIView+Frame.h"
+#import "UIImage+Image.h"
+
+#define LYKeyWindow [UIApplication sharedApplication].keyWindow
+
+// ...表示宏定义的可变参数
+// __VA_ARGS__:表示函数里面的可变参数
+#ifdef DEBUG // 调试
+
+#define LYLog(...) NSLog(__VA_ARGS__)
+
+#else // 发布
+
+#define LYLog(...)
+
+#endif
+
+#define LYStatusCellMargin 10
+#define LYNameFont         [UIFont systemFontOfSize:13]
+#define LYTimeFont         [UIFont systemFontOfSize:12]
+#define LYSourceFont       LYTimeFont
+#define LYTextFont         [UIFont systemFontOfSize:15]
+#define LYScreenW          [UIScreen mainScreen].bounds.size.width
+
+
+#endif
